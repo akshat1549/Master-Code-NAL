@@ -17,7 +17,7 @@ import AgentDashboard from "./components/AgentDashboard";
 import { SellerLogin } from "./components/SellerLogin";
 import { SellerDashboard } from "./components/seller-dashboard/SellerDashboard";
 import { AdminLogin } from "./components/AdminLogin";
-import { AdminDashboard } from "./components/AdminDashboard";
+import { AdminDashboard } from "./components/admin-dashboard/AdminDashboard";
 import { AboutUs } from "./components/AboutUs";
 import { ContactUs } from "./components/ContactUs";
 import { PropertyListingForm } from "./components/PropertyListingForm";
