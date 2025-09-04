@@ -13,14 +13,16 @@ import { Footer } from "./components/Footer";
 import { PropertyDetail } from "./components/PropertyDetail";
 import { PropertyListing } from "./components/PropertyListing";
 import { AgentLogin } from "./components/AgentLogin";
-import AgentDashboard from "./components/AgentDashboard";
+import { AgentDashboard } from "./components/AgentDashboard";
 import { SellerLogin } from "./components/SellerLogin";
-import { SellerDashboard } from "./components/seller-dashboard/SellerDashboard";
+import { SellerDashboard } from "./components/SellerDashboard";
 import { AdminLogin } from "./components/AdminLogin";
-import { AdminDashboard } from "./components/admin-dashboard/AdminDashboard";
+import { AdminDashboard } from "./components/AdminDashboard";
 import { AboutUs } from "./components/AboutUs";
 import { ContactUs } from "./components/ContactUs";
-import { PropertyListingForm } from "./components/PropertyListingForm";
+
+// ✅ Import Chatbot
+import Chatbot from "C:/Users/aksha/Downloads/Master-Code-NAL-main/src/components/chatbot.jsx";
 
 function HomePage() {
   return (
@@ -41,25 +43,56 @@ function HomePage() {
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white flex flex-col">
-        <Header />
-        <main className="flex-1">
-          <Routes>
-            <Route path="/agent" element={<AgentLogin />} />
-            <Route path="/agent/dashboard/*" element={<AgentDashboard />} />
-            <Route path="/seller" element={<SellerLogin />} />
-            <Route path="/seller/dashboard/*" element={<SellerDashboard />} />
-            <Route path="/admin" element={<AdminLogin />} />
-            <Route path="/admin/dashboard" element={<AdminDashboard />} />
-            <Route path="/properties" element={<PropertyListing />} />
-            <Route path="/property/:id" element={<PropertyDetail />} />
-            <Route path="/about" element={<AboutUs />} />
-            <Route path="/contact" element={<ContactUs />} />
-            <Route path="/list-property" element={<PropertyListingForm />} />
-            <Route path="/" element={<HomePage />} />
-          </Routes>
-        </main>
-        <Footer />
+      <div className="min-h-screen bg-white">
+        <Routes>
+          <Route path="/agent" element={<AgentLogin />} />
+          <Route path="/agent/dashboard" element={<AgentDashboard />} />
+          <Route path="/seller" element={<SellerLogin />} />
+          <Route path="/seller/dashboard" element={<SellerDashboard />} />
+          <Route path="/admin" element={<AdminLogin />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/properties" element={<PropertyListing />} />
+          <Route path="/property/:id" element={<PropertyDetail />} />
+          <Route
+            path="/about"
+            element={
+              <>
+                <Header />
+                <main>
+                  <AboutUs />
+                </main>
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <>
+                <Header />
+                <main>
+                  <ContactUs />
+                </main>
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <>
+                <Header />
+                <main>
+                  <HomePage />
+                </main>
+                <Footer />
+              </>
+            }
+          />
+        </Routes>
+
+        {/* 👇 Chatbot added globally */}
+        <Chatbot />
       </div>
     </Router>
   );
