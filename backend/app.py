@@ -1,4 +1,4 @@
-
+#chatbot code with all the ,required libraties
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import random, string, warnings, re, pandas as pd
